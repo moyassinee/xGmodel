@@ -1,0 +1,8 @@
+joblib==1.5.3
+pandas==3.0.5
+PyYAML==6.0.3
+Requests==2.34.2
+scikit_learn==1.9.1
+statsbombpy==1.16.0
+xgboost==3.4.1
+~umpy==1.22.3

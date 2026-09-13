@@ -1,0 +1,44 @@
+# xG model configuration
+# Run `python -c "from statsbombpy import sb; print(sb.competitions())"` to see
+# all available competition_id / season_id pairs in StatsBomb's open data.
+
+data:
+  competition_id: 43   # FIFA World Cup
+  season_id: 106        # 2022
+  exclude_penalties: true
+
+pitch:
+  # StatsBomb pitch coordinates are 120 (x) by 80 (y)
+  goal_x: 120.0
+  goal_y: 40.0
+  goal_post_y1: 36.0
+  goal_post_y2: 44.0
+  # half-angle (radians) used to decide if a defender/keeper is "in the shot cone"
+  cone_half_angle: 0.3
+
+features:
+  numeric:
+    - distance
+    - angle
+    - under_pressure
+    - one_on_one
+    - first_time
+  categorical:
+    - body_part
+    - technique
+    - shot_type
+    - play_pattern
+  use_freeze_frame_features: true   # only applied if >50% of shots have freeze frame data
+
+model:
+  test_size: 0.2
+  random_state: 42
+  xgboost:
+    n_estimators: 200
+    max_depth: 3
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+
+output:
+  model_path: xg_model.joblib
