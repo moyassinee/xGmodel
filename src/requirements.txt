@@ -5,4 +5,9 @@ Requests==2.34.2
 scikit_learn==1.9.1
 statsbombpy==1.16.0
 xgboost==3.4.1
-~umpy==1.22.3
+numpy==1.22.3
+
+# only if you serve the model as an API
+#fastapi>=0.110
+#uvicorn>=0.29
+#pydantic>=2.6
