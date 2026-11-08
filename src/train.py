@@ -25,4 +25,4 @@ print(metrics)
 model.fit(X, y)                       # final model on all data
 joblib.dump({"model": model, "features": FEATURES, "metrics": metrics,
              "sklearn": sklearn.__version__, "trained": dt.date.today().isoformat()},
-            "models/xg_v1.joblib", compress=3)
+            "../models/xg_v1.joblib", compress=3)
